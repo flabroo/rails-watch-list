@@ -1,0 +1,11 @@
+<% if list.photo.key.nil? %>
+  <div class="card-category"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "dr9o3wqpc4637y9uzuj2jwhwibe3", height: 300, crop: :fill %>')">
+      <p><%= list.name %></p>
+  </div>
+<% else %>
+  <div class="card-category"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+        <p><%= list.name %></p>
+  </div>
+<% end %>
