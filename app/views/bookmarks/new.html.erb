@@ -1,5 +1,6 @@
 <h1>Create new bookmark</h1>
 <%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%# <%= f.association :movie, collection: Movie.not_in_list(@list) %>
   <%= f.association :movie %>
   <%= f.input :comment %>
   <%= f.submit %>

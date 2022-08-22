@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <div class="navbar-lewagon">
+      <%= link_to "My Movie Lists", root_path, class: "banner-title" %>
+      <%= link_to "+ Create new list", new_list_path %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
