@@ -1,0 +1,25 @@
+<h1><%= @list.name %></h1>
+<p><%= link_to "Add movies to list", new_list_bookmark_path(@list) %></p>
+
+<div class="d-flex container justify-content-around">
+  <% @list.movies.each do |movie| %>
+    <div class="movie-card border text-center p-2">
+      <%= image_tag movie.poster_url, alt: "", width: 200 %>
+      <h4><strong><%= movie.title %></strong></h4>
+      <p><%= movie.overview %></p>
+      <%= link_to "Delete",
+        bookmark_path(movie.bookmarks.find{ |n| n.list_id == @list.id}),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </div>
+  <% end %>
+</div>
+<br>
+<hr>
+<br>
+<h2>Add movie to list</h2>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+  <% end %>
